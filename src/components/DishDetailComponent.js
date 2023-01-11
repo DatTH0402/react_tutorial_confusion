@@ -36,7 +36,6 @@ function DishDetail(props) {
                     </div>
                 </div>
             </div>
-            
         )
     } else {
         return(
