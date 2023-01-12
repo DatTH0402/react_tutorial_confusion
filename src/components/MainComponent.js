@@ -46,7 +46,6 @@ class Main extends Component{
                         <NavbarBrand href="/">Ristorante Con Fusion</NavbarBrand>
                     </div>
                 </Navbar>
-                {/* <Menu dishes={this.state.dishes} onClick={(dish) => {this.onDishSelect(dish)}}/> */}
                 <Switch>
                     <Route path='/home' component={HomePage} />
                     <Route exact path='/menu' component={() => <Menu dishes={this.state.dishes} />} />
