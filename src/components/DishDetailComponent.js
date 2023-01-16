@@ -7,7 +7,7 @@ import {
 } from 'reactstrap';
 import { Control, LocalForm } from 'react-redux-form';
 import { Link } from 'react-router-dom';
-
+import { Loading } from './LoadingComponent';
 
 function RenderDish({ dish }) {
     return (
@@ -78,11 +78,11 @@ class CommentForm extends Component {
                                 <Col md={10}>
                                     <Control.select model=".rating" id="rating" name="rating"
                                         className="form-control">
-                                            <option value="1">1</option>
-                                            <option value="2">2</option>
-                                            <option value="3">3</option>
-                                            <option value="4">4</option>
-                                            <option value="5">5</option>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
                                     </Control.select>
                                 </Col>
                             </Row>
@@ -118,8 +118,27 @@ class CommentForm extends Component {
 }
 
 function DishDetails(props) {
+
     const dish = props.dish;
-    if (dish != null) {
+    if (props.isLoading) {
+        return (
+            <div className="container">
+                <div className="row">
+                    <Loading />
+                </div>
+            </div>
+        );
+    }
+    else if (props.errMess) {
+        return (
+            <div className="container">
+                <div className="row">
+                    <h4>{props.errMess}</h4>
+                </div>
+            </div>
+        );
+    }
+    else if (dish != null) {
         return (
             <div className="container">
                 <div className="row">
